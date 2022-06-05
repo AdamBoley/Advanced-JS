@@ -84,3 +84,49 @@ let { brian, anna, ...rest} = favouriteFoods
 console.log(brian) //logs pizza
 console.log(anna) //logs pasta
 console.log(rest) //logs an object containing sarah: 'sausages', andrea: 'bread'
+
+
+//Destructuring Challenge:
+let students = [
+    {
+        name: 'Emily',
+        subjects: ['science', 'english', 'art'],
+        teacher: {science: 'Iris', english: 'Joan', art: 'Simon'},
+        results: {science: 93, english: 80, art: 95},
+    },
+    {
+        name: 'John',
+        subjects: ['art', 'cad', 'english', 'maths', 'science'],
+        teacher: {maths: 'Harry', english: 'Joan', cad: 'Paul'},
+        results: {maths: 90, english: 75, cad: 87},
+    },
+    {
+        name: 'Adam',
+        subjects: ['science', 'maths', 'art'],
+        teacher: {science: 'Iris', maths: 'Harry', art: 'Simon'},
+        results: {science: 93, maths: 77, art: 95},
+    },
+    {
+        name: 'Fran',
+        subjects: ['science', 'english', 'art'],
+        teacher: {science: 'Iris', english: 'Joan', art: 'Simon'},
+        results: {science: 93, english: 87, art: 95},
+    }
+];
+
+const makeList = (arr, student) => {
+    
+    let subjects = [] //declared empty array
+    for (let i in arr) {
+        //loops over array
+        if (student === arr[i].name) {
+            //checks to see if the value of student (Emily, John, etc) matches the value of the name key of the object
+            subjects = [...arr[i].subjects] //updates the value of the subjects array
+        }
+    }
+    return subjects
+}
+
+let [first, second, ...remaining] = makeList(students, 'Emily') //uses destructurng to call a function
+console.log(first, second, remaining)
+// logs the first and second subjects, then the remaining subjects in an array. Remaining used because rest is not allowed
