@@ -116,7 +116,7 @@ let students = [
 
 const makeList = (arr, student) => {
     
-    let subjects = [] //declared empty array
+    let subjects = [] //declares empty array
     for (let i in arr) {
         //loops over array
         if (student === arr[i].name) {
